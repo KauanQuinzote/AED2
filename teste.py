@@ -15,7 +15,7 @@ BLACK = (0, 0, 0)
 BLUE = (0, 128, 255)
 
 # Fonte
-font = pygame.font.Font(None, 50)
+font = pygame.font.Font(None, 36)
 
 class TextInput:
     def __init__(self, x, y):
@@ -67,10 +67,15 @@ class ArrayInput:
 
     def display_numbers(self, screen):
         # Exibe os números na tela dentro de retângulos na horizontal
+        
         x_position = 50  # Começo da posição no eixo X
         y_position = 350  # Posição fixa no eixo Y (não será alterada)
         box_width = 80  # Largura da caixinha
         box_height = 80  # Altura da caixinha
+        
+        if len(self.numbers) > 7:
+            box_width  -=30
+            box_height -=30
 
         for num in self.numbers:
             # Desenha o retângulo
@@ -79,7 +84,15 @@ class ArrayInput:
             number_text = font.render(str(num), True, WHITE)  # Cor branca para o texto
             screen.blit(number_text, (x_position + (box_width - number_text.get_width()) // 2, y_position + (box_height - number_text.get_height()) // 2))
             
-            x_position += 100  # Espaça as caixinhas horizontalmente
+            if len(self.numbers) < 7:
+                x_position += 100  # Espaça as caixinhas horizontalmente
+                
+            elif len(self.numbers) < 10:
+                x_position += 80
+                
+            elif len(self.numbers) < 15:
+                x_positon += 60
+
 
     def handle_events(self, event):
         number = self.text_input.handle_event(event)
