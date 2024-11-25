@@ -18,8 +18,8 @@ ORANGE = (250, 124, 17)
 screen_width, screen_height = 800, 600
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("TRABALHO de AED II")
-font = pygame.font.Font("minha_fonte.ttf", 25)
-small_font = pygame.font.Font("minha_fonte.ttf", 15)
+font = pygame.font.Font("Trabalho 1/minha_fonte.ttf", 25)
+small_font = pygame.font.Font("Trabalho 1/minha_fonte.ttf", 15)
 clock = pygame.time.Clock()
 
 # Define a classe do Botão
@@ -52,9 +52,7 @@ class TextInput:
         self.active = False # só ativa hora que clicar nele
         self.font_size = 36  # Tamanho inicial da fonte
 
-        # Carrega a fonte customizada (minha-fonte.ttf)
-        self.font_path = "minha_fonte.ttf"  # Caminho da fonte customizada
-        self.font = pygame.font.Font(self.font_path, self.font_size)
+        self.font = font
 
     def handle_event(self, event):
         # essa função controla os eventos que acontecem com o input de texto
@@ -82,7 +80,7 @@ class TextInput:
             self.font_size = max(min_font_size, max_font_size - (text_length * 2))
 
         # Atualiza a fonte com o novo tamanho
-        self.font = pygame.font.Font(self.font_path, self.font_size)
+        self.font = font
 
         # Desenha o campo de texto
         pygame.draw.rect(screen, WHITE, self.rect)
@@ -109,8 +107,8 @@ class Text:
         self.y = y
         self.color = BLACK
         self.font_size = 36
-        self.font_path = "minha_fonte.ttf"  # Caminho da fonte customizada
-        self.font = pygame.font.Font(self.font_path, self.font_size)
+        self.font_path = font  # Caminho da fonte customizada
+        self.font = font
 
     def draw(self, screen):
         """
