@@ -530,8 +530,8 @@ def menu_screen(screen):
     radix_button = Button(300, 300, 200, 50, "Radix Sort", GREEN, WHITE)
     exit_button = Button(300, 400, 200, 50, "Exit", BLACK, WHITE)
     next_screen = None
-    description_text = Text('Kauan Domingues de Souza - 170347', 100, 500)
-    prof_text = Text('Prof. Dr. Reginaldo Massanobu Kuroshu', 100, 540)
+    description_text = Text('Kauan Domingues de Souza - 170347', 200, 500)
+    prof_text = Text('Prof. Dr. Reginaldo Massanobu Kuroshu', 200, 540)
     #enquanto o menu estiver rodando
     while running:
         for event in pygame.event.get():
